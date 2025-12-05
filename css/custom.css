@@ -58,12 +58,13 @@ h1, h2, h3, h4, h5, h6 {
 h1 { 
   font-size: 8.5rem;
   font-weight: 700;
-  /* Try adding: font-weight, color, text-transform, etc. */
+  margin-bottom: var(--spacing8x2);
 }
 
 h2 { 
   font-size: 5rem;
   font-weight: 600;
+  margin-bottom: var(--spacing8x3);
 }
 
 
@@ -91,31 +92,42 @@ p {
   font-size: 1rem;
   line-height: 1.8;
   color: var(--text-dark);
-  /* Try adjusting: line-height, letter-spacing, margin-bottom */
+  margin-bottom: var(--spacing8x3);
 }
 
 /* Image and text alternating layout */
 section.grid img + p,
 section.grid img + h4 {
-  margin-top: var(--spacing8x2);
-}
-
-/* Alternating left-right image layout */
-section.grid > img:nth-of-type(odd) {
-  order: -1;
+  margin-top: var(--spacing8x4);
 }
 
 @media only screen and (min-width: 800px) {
   section.grid > img {
     width: 100%;
-    margin-bottom: var(--spacing8x2);
+    margin-bottom: var(--spacing8x4);
+    margin-top: var(--spacing8x3);
   }
 }
 
 
 
 section div+div {
-  margin-top: var(--spacing8x1);
+  margin-top: var(--spacing8x4);
+}
+
+section + section,
+section + div,
+.dark-bg-wrapper + section {
+  margin-top: var(--spacing8x5);
+}
+
+section {
+  padding: var(--spacing8x4) 0;
+}
+
+.dark-bg-wrapper {
+  margin-top: var(--spacing8x5);
+  margin-bottom: var(--spacing8x5);
 }
 
 
@@ -252,7 +264,7 @@ header nav a.active {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  padding: var(--spacing8x3) calc(50vw - 50%);
+  padding: var(--spacing8x6) calc(50vw - 50%);
   box-sizing: border-box;
 }
 
@@ -262,7 +274,7 @@ header nav a.active {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  padding: var(--spacing8x3) calc(50vw - 50%);
+  padding: var(--spacing8x6) calc(50vw - 50%);
   box-sizing: border-box;
 }
 
@@ -433,7 +445,7 @@ hr {
 .quote-section blockquote p {
   font-size: 1.3rem;
   font-style: italic;
-  color: var(--dark-purple);
+  color: #d3dbdd;
   margin-bottom: var(--spacing8x2);
   line-height: 1.8;
   font-weight: 600;
@@ -441,7 +453,7 @@ hr {
 
 .quote-section cite {
   font-size: 1rem;
-  color: var(--text-dark);
+  color: #d3dbdd;
   font-style: normal;
   font-weight: 500;
 }
