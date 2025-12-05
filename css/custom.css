@@ -33,6 +33,12 @@ Experiment with colors, typography, spacing, and component styles.
 
 }
 
+/* Reusable styles */
+
+.center-text {
+  text-align: center;
+}
+
 
 
 
