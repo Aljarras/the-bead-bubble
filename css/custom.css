@@ -94,9 +94,22 @@ p {
   /* Try adjusting: line-height, letter-spacing, margin-bottom */
 }
 
-img + h4,
-picture + p {
+/* Image and text alternating layout */
+section.grid img + p,
+section.grid img + h4 {
   margin-top: var(--spacing8x2);
+}
+
+/* Alternating left-right image layout */
+section.grid > img:nth-of-type(odd) {
+  order: -1;
+}
+
+@media only screen and (min-width: 800px) {
+  section.grid > img {
+    width: 100%;
+    margin-bottom: var(--spacing8x2);
+  }
 }
 
 
@@ -133,7 +146,8 @@ a:hover {
 }
 
 /* Button Styles - Customize your call-to-action buttons */
-a.button {
+a.button,
+a.learn-more {
   border-radius: 25px;
   border: 2px solid var(--dark-purple);
   padding: 12px 24px;
@@ -143,10 +157,10 @@ a.button {
   font-weight: 600;
   background-color: transparent;
   transition: all 0.3s ease;
-  /* Try adding: background-color, box-shadow, transform on hover, etc. */
 }
 
-a.button:hover {
+a.button:hover,
+a.learn-more:hover {
   background-color: var(--dark-purple);
   color: var(--white);
 }
@@ -198,26 +212,25 @@ header nav a.active {
 
 /* Hero section */
 #hero-image {
-  background: url('../img/placeholder_bg.png') no-repeat center center/cover;
-  height: 95vh;
+  background: var(--light-purple);
+  min-height: 60vh;
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: var(--spacing8x3);
 }
 
 #hero-image h1 {
-  text-align: center;
-  color: var(--white);
-  margin: 0; 
-
+  text-align: left;
+  color: var(--dark-purple);
+  margin: 0;
 }
 
 #hero-image p {
-  color: var(--white);
-  margin: 0; 
+  color: var(--dark-purple);
+  margin: 0;
 }
 
 #hero-image span i {
