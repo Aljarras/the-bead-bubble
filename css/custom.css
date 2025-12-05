@@ -6,19 +6,30 @@ Experiment with colors, typography, spacing, and component styles.
 
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Katibeh&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+
 /* ==========================================================================
    DESIGN SYSTEM - CUSTOMIZE YOUR COLORS & BRAND
    ========================================================================== */
 
 :root {
-  --primary-100: #3A4E6A;
-  --primary-80: #486284;
-  --primary-50: #9CB0C9;
-  --primary-25: #CED7E4;
-  --grey: #EBEFF4;
-  --white: #fff;
+  --dark-purple: #413256;
+  --light-purple: #B1A1C8;
+  --medium-purple: #9b88ad;
+  --teal: #9EAAD1;
+  --white: #D3DBDD;
+  --light-gray: #f5f5f5;
+  --text-dark: #2d2d2d;
+  --font-family: 'Katibeh', serif;
+  --font-sans: 'Instrument Sans', sans-serif;
   
-  /* You can add more custom colors here */
+  /* Legacy color variables for compatibility */
+  --primary-100: #4a3d5e;
+  --primary-80: #2d2d2d;
+  --primary-50: #9b88ad;
+  --primary-25: #c4b5d4;
+  --grey: #f5f5f5;
 
 }
 
@@ -30,49 +41,56 @@ Experiment with colors, typography, spacing, and component styles.
    ========================================================================== */
 
 body {
-  color: var(--primary-80);
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  line-height: 1.6;
   /* font-family is set in framework.css but you can override it here if needed */
 }
 
 /* Heading Styles - Customize sizes, colors, spacing */
 h1, h2, h3, h4, h5, h6 { 
   line-height: 1.1;
-  color: var(--primary-80);
+  color: var(--dark-purple);
+  font-family: var(--font-family);
   /* Add your custom heading styles here */
 }
 
 h1 { 
-  font-size: 90px;
+  font-size: 8.5rem;
+  font-weight: 700;
   /* Try adding: font-weight, color, text-transform, etc. */
 }
 
 h2 { 
-  font-size: 42px;
+  font-size: 5rem;
+  font-weight: 600;
 }
 
 
 
 h3 { 
-  font-size: 30px;
+  font-size: 4.5rem;
+  font-weight: 600;
 }
 
 h4 { 
-  font-size: 24px;
+  font-size: 2.75rem;
+  font-weight: 600;
 }
 
 h5 { 
-  font-size: 20px;
+  font-size: 1rem;
 }
 
 h6 { 
-  font-size: 18px;
+  font-size: 0.95rem;
 }
 
 /* Paragraph Styles */
 p {
-  font-size: 18px;
-  line-height: 1.5;
-  color: var(--primary-80);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-dark);
   /* Try adjusting: line-height, letter-spacing, margin-bottom */
 }
 
@@ -104,28 +122,33 @@ section div+div {
 /* Basic Link Styles */
 a {
   text-decoration: none;
-  color: var(--primary-80);
+  color: var(--text-dark);
   transition: all 300ms;
   /* Try adding: border-bottom, font-weight changes, etc. */
 }
 
 a:hover {
-  opacity: 0.5;
+  color: var(--dark-purple);
   /* Try different hover effects: color changes, transforms, etc. */
 }
 
 /* Button Styles - Customize your call-to-action buttons */
 a.button {
-  border-radius: 50px;
-  border: 2px solid var(--primary-80);
-  padding: 10px 20px 8px;
+  border-radius: 25px;
+  border: 2px solid var(--dark-purple);
+  padding: 12px 24px;
   display: inline-block;
   margin-top: var(--spacing8x2);
+  color: var(--dark-purple);
+  font-weight: 600;
+  background-color: transparent;
+  transition: all 0.3s ease;
   /* Try adding: background-color, box-shadow, transform on hover, etc. */
 }
 
 a.button:hover {
-  background: var(--dark)
+  background-color: var(--dark-purple);
+  color: var(--white);
 }
 
 /* Example: Secondary Button Style */
@@ -160,11 +183,15 @@ header nav {
 
 header nav a {
   margin-left: 40px;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
   /* Try adding: text-transform, font-weight, padding for button-style nav */
 }
 
+header nav a:hover,
 header nav a.active {
-  border-bottom: 2px solid var(--primary-80);
+  color: var(--dark-purple);
+  border-bottom: 2px solid var(--dark-purple);
   padding-bottom: 2px;
 }
 
@@ -208,7 +235,17 @@ header nav a.active {
 
 /* Light background wrapper - extends to viewport edges */
 .light-bg-wrapper {
-  background: var(--grey);
+  background: var(--light-gray);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: var(--spacing8x3) calc(50vw - 50%);
+  box-sizing: border-box;
+}
+
+/* Dark background wrapper */
+.dark-bg-wrapper {
+  background: var(--dark-purple);
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
@@ -219,7 +256,7 @@ header nav a.active {
 /* Callout */
 
 .callout {
-  background: var(--grey);
+  background: var(--light-purple);
 }
 
 .callout div {
@@ -249,7 +286,7 @@ section p + a.button {
 /* Footer Styles */
 footer {
   width: 100%;
-  background: var(--primary-100);
+  background: var(--dark-purple);
   color: var(--white);
   padding: 40px 20px 20px;
   /* Try customizing: background gradients, text alignment, etc. */
@@ -262,11 +299,11 @@ footer img {
 footer hr {
   margin: 10px 0 20px;
   border: none;
-  border-bottom: 1.5px solid var(--primary-25);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
 }
 
 footer a, footer p {
-  color: var(--secondary-color);
+  color: var(--white);
   font-size: 12px;
 }
 
@@ -280,6 +317,11 @@ footer nav a + a {
 
 footer nav, footer p {
   text-align: right;
+}
+
+footer a:hover {
+  color: var(--teal);
+  text-decoration: underline;
 }
 
 /* Mobile Footer Adjustments */
@@ -307,23 +349,27 @@ footer nav, footer p {
 .dark-bg-wrapper a.button {
   border: 2px solid var(--white);
   color: var(--white);
-} 
+}
 
+.dark-bg-wrapper a.button:hover {
+  background-color: var(--white);
+  color: var(--dark-purple);
+}
 
    /* Divider Lines */
 hr {
   border: none;
-  border-bottom: 1.5px solid var(--primary-25);
+  border-bottom: 1.5px solid var(--light-purple);
   /* Try adding: margin, different border styles, gradients */
 }
 
 /* Icon with Text Component */
 .icon-with-text i {
-  background: var(--grey);
+  background: var(--light-purple);
   padding: 17px 16px 23px;
   border-radius: 200px;
   font-size: 30px;
-  color: var(--primary-80);
+  color: var(--dark-purple);
   /* Try customizing: colors, sizing, border-radius, box-shadow */
 }
 
@@ -372,16 +418,90 @@ hr {
 }
 
 .quote-section blockquote p {
-  font-size: 24px;
+  font-size: 1.3rem;
   font-style: italic;
-  color: var(--white);
+  color: var(--dark-purple);
   margin-bottom: var(--spacing8x2);
-  line-height: 1.4;
+  line-height: 1.8;
+  font-weight: 600;
 }
 
 .quote-section cite {
-  font-size: 16px;
-  color: var(--primary-25);
+  font-size: 1rem;
+  color: var(--text-dark);
   font-style: normal;
   font-weight: 500;
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION
+   ========================================================================== */
+
+/* Mobile Navigation Styles */
+.mobile-nav {
+  background-color: var(--dark-purple);
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  transition: left 0.3s ease;
+}
+
+.mobile-nav nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+}
+
+.mobile-nav a {
+  color: var(--white);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a.active {
+  color: var(--teal);
+}
+
+#mobile-nav-toggle:checked ~ .mobile-nav {
+  left: 0;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--dark-purple);
+  margin: 6px 0;
+  transition: 0.3s;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 799px) {
+  .hamburger-menu {
+    display: block;
+  }
 }
