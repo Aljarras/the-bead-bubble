@@ -404,6 +404,14 @@ hr {
   /* Try customizing: colors, sizing, border-radius, box-shadow */
 }
 
+/* Benefits Column - stacks benefit items vertically */
+.benefits-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-self: start;
+}
+
 
 
 
